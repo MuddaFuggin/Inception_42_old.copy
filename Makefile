@@ -102,6 +102,10 @@ check:
 			curl -kI https://csimonne.42.fr ;; \
 		ip) \
 			echo "\n" ; hostname -I ; echo "\n" ; make check ;; \
+		tcpports) \
+			docker exec -it nginx ss -tln ; \
+			docker exec -it wordpress ss -tln ; \
+			docker exec -it mariadb ss -tln ;; \
 		exit) \
 			exit 0 ;; \
 		clear) \
