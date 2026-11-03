@@ -51,13 +51,13 @@ run `make check` at the root of the repository. It gives you access to various o
 
 Type the following for some interesting tests :
 
-`status` checks which processes are _up_ and running.
-`volumes` informs you about the configuration of volumes, and lists files available inside.
-`user` displays which WordPress users are available.
-`images` displays images informations.
-`versions` displays which images havec been used to build services.
-`log` displays Nginx, MariaDB or Wordpress logs.
-`wp` displays the results of exposure tests for port 80 (HTTP) and port 443 (HTTPS)
+- `status` checks which processes are _up_ and running.
+- `volumes` informs you about the configuration of volumes, and lists files available inside.
+- `user` displays which WordPress users are available.
+- `images` displays images informations.
+- `versions` displays which images havec been used to build services.
+- `log` displays Nginx, MariaDB or Wordpress logs.
+- `wp` displays the results of exposure tests for port 80 (HTTP) and port 443 (HTTPS)
 
 
 --host-resolver-rules="MAP csimonne.42.fr 127.0.0.1
