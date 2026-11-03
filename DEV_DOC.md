@@ -1,3 +1,9 @@
+NOTES :
+
+Non, vous n'avez pas besoin d'écrire :443. Le préfixe https:// indique déjà automatiquement à n'importe quel navigateur d'utiliser le port 443 par défaut. Écrire [https://csimonne.42.fr/wp-admin/](https://csimonne.42.fr/wp-admin/) suffit donc amplement et correspond à l'URL standard exacte attendue.
+
+
+
 Guide de Soutenance - Projet Inception 42
 
 Ce document synthétise l'ensemble de l'architecture, des choix techniques et des mécanismes de sécurité validés pour le projet Inception. Il est conçu pour vous servir de support de référence clair et direct lors de votre soutenance.

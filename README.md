@@ -52,7 +52,7 @@ Due to the limitations of the development environment (headless VM, lack of sudo
 
 		disclaimer : In both cases, a security warning will appear due to the self-signed SSL/TLS certificate, which is expected.
 
-3. Use `make down` to stop and remove containers, or `make fclean` to completely erase persistent volumes and data from the host.
+3. Use `make stop` / `make start` (or `make restart`) for maintenance purposes and to test data persistence, `make down` to stop and remove containers, or `make fclean` to completely erase persistent volumes and data from the host.
 
 ##### Various available tests
 
