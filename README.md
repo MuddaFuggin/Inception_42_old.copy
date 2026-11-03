@@ -64,11 +64,11 @@ Type the following for some interesting tests :
 
 ## Resources
 
-* Official documentation for Docker, Docker Compose, NGINX, WordPress, and MariaDB :  
-https://docs.docker.com/  
-https://nginx.org/en/docs/  
-https://mariadb.org/documentation/  
-https://wordpress.org/documentation/  
+* Official documentation:
+  - [Docker](https://docs.docker.com/)
+  - [NGINX](https://nginx.org/en/docs/)
+  - [MariaDB](https://mariadb.org/documentation/)
+  - [WordPress](https://wordpress.org/documentation/)  
 
 * Project guide / tutorial :   
 https://devabdilah.medium.com/  
