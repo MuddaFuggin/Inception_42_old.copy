@@ -1,20 +1,95 @@
-*This project has been created as part of the 42 curriculum by csimonne*
+*This project has been created as part of the 42 curriculum by csimonne.*
+
+## Description
+
+This project consists of setting up a small-scale web infrastructure using Docker and Docker Compose. The goal is to deploy a secure and isolated stack consisting of NGINX, WordPress, and MariaDB inside a Debian virtual machine.
+
+Each service runs in its own dedicated container, built from custom Dockerfiles located in the `srcs/requirements` directory. The containers communicate through a private Docker network.
 
 
+## Instructions
+
+To compile, install, and execute this project:
+
+##### Prerequisites :
+
+You could follow the instructions below to set up and run the infrastructure on your own hypervisor, provided that _docker_ and _docker compose_ are installed. However, the original developpement environnement consists of a Virtual Machine with Debian Bookworm installed (without a graphical interface).
+
+To reproduce this environment, you can either import the provided .ova file or set up your own Linux Virtual Machine with the following configuration:
+
+- Install Docker and Docker Compose.
+- Configure your VM's port forwarding rules:
+        HTTPS: TCP, host port 4443 → guest port 443.
+		You can also access your VM through SSH for convenience (optional)
+        SSH: TCP, host port 2222 → guest port 22.
+
+
+##### Configuration :
+
+1. Ensure your environment variables are configured in `srcs/.env`.You can create your `.env` based on the `.env.example` provided.
+
+2. Create your local passwords as text files inside the `secrets/` directory. Use this blueprint :
+
+```bash
+echo "my_db_password" > secrets/db_password.txt 
+echo "my_root_password" > secrets/db_root_password.txt 
+echo "my_admin_password" > secrets/wp_admin_password.txt 
+echo "my_user_password" > secrets/wp_password.txt
+```
+
+##### Basic Usage 
+
+1. Run `make` at the root of the repository : it will prepare the host directories, build the images, and start the containers via *Docker Compose*.
+
+2. Access the site by navigating to `https://csimonne.42.fr:4443` (a security warning will appear due to the self-signed SSL/TLS certificate, which is expected).
+
+3. Use `make down` to stop and remove containers, or `make fclean` to completely erase persistent volumes and data from the host.
+
+##### Various available tests
+
+run `make check` at the root of the repository. It gives you access to various options. type `clear` to clear your entries or `exit` to go back to bash.
+
+Type the following for some interesting tests :
+
+`status` checks which processes are _up_ and running.
+`volumes` informs you about the configuration of volumes, and lists files available inside.
+`user` displays which WordPress users are available.
+`images` displays images informations.
+`versions` displays which images havec been used to build services.
+`log` displays Nginx, MariaDB or Wordpress logs.
+`wp` displays the results of exposure tests for port 80 (HTTP) and port 443 (HTTPS)
+
+
+--host-resolver-rules="MAP csimonne.42.fr 127.0.0.1
+
+## Resources
+
+* Official documentation for Docker, Docker Compose, NGINX, WordPress, and MariaDB.
+https://docs.docker.com/
+https://nginx.org/en/docs/
+https://mariadb.org/documentation/
+https://wordpress.org/documentation/
+
+* Project guide / tutorial : 
 https://devabdilah.medium.com/inception-42-a-comprehensive-guide-to-dockerizing-your-first-infrastructure-part-iii-a10e93e9d922
 
+* AI Usage: Artificial Intelligence was used to assist in structuring the project : as a step by step tutorial, to adapt some commands, find some execution scripts, understand concepts and ask questions.
 
-Execution : 
 
-(a completer) (ou alors c est pour DEV_DOCS?)
-make needs :
-1/ secrets 
-2/ a .env to know where to create bound directories
+## Design specifications and choices
 
-3/
+**Docker Usage & Design Choices:**
+Docker is utilized to containerize applications at the OS level, sharing the host's kernel instead of virtualizing hardware. This project employs a modular design where each service relies on custom initialization scripts (`entrypoint.sh`) to prepare the environment (as well as ensuring the main process remains in the foreground as PID 1).
 
-echo "mon_mot_de_passe_db" > secrets/db_password.txt 
-echo "mon_root_password" > secrets/db_root_password.txt 
-echo "mon_admin_password" > secrets/wp_admin_password.txt 
-echo "mon_user_password" > secrets/wp_password.txt
+* **Virtual Machines vs Docker:** Virtual Machines run a full guest operating system on top of virtualized hardware, making them heavy and resource-intensive. Docker containerizes applications at the OS level, sharing the host's kernel, which makes it significantly faster and more lightweight.
+
+* **Secrets vs Environment Variables:** Environment variables are useful for general configuration (like domain names) but can be exposed if the container environment is inspected(via 'docker inspect' for instance, or through child process's error logs). Docker Secrets are used for sensitive data (like database passwords) because they are securely mounted directly into temporary files, keeping them hidden from the standard environment.
+
+* **Docker Network vs Host Network:** Using the host network shares the host machine's network stack directly, which lacks isolation. This project uses a custom Docker Network to create an isolated internal bridge where containers communicate securely using internal DNS, exposing only port 443 to the outside world.
+
+* **Docker Volumes vs Bind Mounts:** Bind mounts map a physical directory from the host directly into a container, while Docker Volumes are entirely managed by Docker within its internal storage. To satisfy the project's requirement of storing data physically in `/home/csimonne/data`, this infrastructure uses Named Volumes with a local driver pointing explicitly to the host's bind path, ensuring persistent data even if containers are destroyed.
+
+
+
+
 
