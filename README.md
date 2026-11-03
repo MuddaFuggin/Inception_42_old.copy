@@ -64,14 +64,15 @@ Type the following for some interesting tests :
 
 ## Resources
 
-* Official documentation for Docker, Docker Compose, NGINX, WordPress, and MariaDB.
-https://docs.docker.com/
-https://nginx.org/en/docs/
-https://mariadb.org/documentation/
-https://wordpress.org/documentation/
+* Official documentation for Docker, Docker Compose, NGINX, WordPress, and MariaDB :
+https://docs.docker.com/  
+https://nginx.org/en/docs/  
+https://mariadb.org/documentation/  
+https://wordpress.org/documentation/  
 
 * Project guide / tutorial : 
-https://devabdilah.medium.com/inception-42-a-comprehensive-guide-to-dockerizing-your-first-infrastructure-part-iii-a10e93e9d922
+https://devabdilah.medium.com/  
+https://inception-42-a-comprehensive-guide-to-dockerizing-your-first-infrastructure-part-iii-a10e93e9d922
 
 * AI Usage: Artificial Intelligence was used to assist in structuring the project : as a step by step tutorial, to adapt some commands, find some execution scripts, understand concepts and ask questions.
 
@@ -83,11 +84,11 @@ Docker is utilized to containerize applications at the OS level, sharing the hos
 
 * **Virtual Machines vs Docker:** Virtual Machines run a full guest operating system on top of virtualized hardware, making them heavy and resource-intensive. Docker containerizes applications at the OS level, sharing the host's kernel, which makes it significantly faster and more lightweight.
 
-* **Secrets vs Environment Variables:** Environment variables are useful for general configuration (like domain names) but can be exposed if the container environment is inspected(via 'docker inspect' for instance, or through child process's error logs). Docker Secrets are used for sensitive data (like database passwords) because they are securely mounted directly into temporary files, keeping them hidden from the standard environment.
+* **Secrets vs Environment Variables:** Environment variables are useful for general configuration (like domain names) but can be exposed if the container environment is inspected (via 'docker inspect' for instance, or through child process's error logs). Docker Secrets are used for sensitive data (like database passwords) because they are securely mounted directly into temporary files, keeping them hidden from the standard environment.
 
 * **Docker Network vs Host Network:** Using the host network shares the host machine's network stack directly, which lacks isolation. This project uses a custom Docker Network to create an isolated internal bridge where containers communicate securely using internal DNS, exposing only port 443 to the outside world.
 
-* **Docker Volumes vs Bind Mounts:** Bind mounts map a physical directory from the host directly into a container, while Docker Volumes are entirely managed by Docker within its internal storage. To satisfy the project's requirement of storing data physically in `/home/csimonne/data`, this infrastructure uses Named Volumes with a local driver pointing explicitly to the host's bind path, ensuring persistent data even if containers are destroyed.
+* **Docker Volumes vs Bind Mounts:** Bind mounts map a physical directory from the host directly into a container, while Docker Volumes are entirely managed by Docker within its internal storage. To satisfy the project's requirement of storing data physically in _/home/csimonne/data_, this infrastructure uses Named Volumes with a local driver pointing explicitly to the host's bind path, ensuring persistent data even if containers are destroyed.
 
 
 
