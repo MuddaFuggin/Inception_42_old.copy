@@ -48,7 +48,7 @@ Due to the limitations of the development environment (headless VM, lack of sudo
 
 	Note: You can replace 'google-chrome' with another Chromium-based browser prompt, but this specific DNS injection flag does not work with Firefox.
  
-	However, if you have configured a graphical interface and a browser directly inside your VM, simply navigate to the standard URL without the forwarded port: `https://csimonne.42.fr/wp-admin/`
+		However, if you have configured a graphical interface and a browser directly inside your VM, simply navigate to the standard URL without the forwarded port: `https://csimonne.42.fr/wp-admin/`
 
 	disclaimer : In both cases, a security warning will appear due to the self-signed SSL/TLS certificate, which is expected.
 
