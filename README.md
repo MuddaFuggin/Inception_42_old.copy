@@ -40,7 +40,7 @@ echo "my_user_password" > secrets/wp_password.txt
 
 1. Run `make` at the root of the repository : it will prepare the host directories, build the images, and start the containers via *Docker Compose*.
 
-2. Access the website : Due to the limitations of the development environment (headless VM, lack of sudo privileges on the physical machine), if you are testing from a campus 42's computer, you must force a DNS redirection to bypass the NAT. To do so, please type:"
+2. Access the website : Due to the limitations of the development environment (headless VM, lack of sudo privileges on the physical machine), if you are testing from a campus 42's computer, you must force a DNS redirection to bypass the NAT. To do so, please type the following _from your physical machine's terminal_ :  
 `google-chrome --incognito --host-resolver-rules="MAP csimonne.42.fr 127.0.0.1" "https://csimonne.42.fr:4443/wp-admin/"`   
 
 If it does not work, try clearing your browser's navigation history and cookies.  
