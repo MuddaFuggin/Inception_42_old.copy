@@ -64,17 +64,17 @@ Type the following for some interesting tests :
 
 ## Resources
 
-* Official documentation for Docker, Docker Compose, NGINX, WordPress, and MariaDB :
+* Official documentation for Docker, Docker Compose, NGINX, WordPress, and MariaDB :  
 https://docs.docker.com/  
 https://nginx.org/en/docs/  
 https://mariadb.org/documentation/  
 https://wordpress.org/documentation/  
 
-* Project guide / tutorial : 
+* Project guide / tutorial :   
 https://devabdilah.medium.com/  
 https://inception-42-a-comprehensive-guide-to-dockerizing-your-first-infrastructure-part-iii-a10e93e9d922
 
-* AI Usage: Artificial Intelligence was used to assist in structuring the project : as a step by step tutorial, to adapt some commands, find some execution scripts, understand concepts and ask questions.
+* AI Usage:  Artificial Intelligence was used to assist in structuring the project : as a step by step tutorial, to adapt some commands, find some execution scripts, understand concepts and ask questions.
 
 
 ## Design specifications and choices
