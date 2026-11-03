@@ -43,12 +43,13 @@ echo "my_user_password" > secrets/wp_password.txt
 2. Access the website : Due to the limitations of the development environment (headless VM, lack of sudo privileges on the physical machine), if you are testing from a campus 42's computer, you must force a DNS redirection to bypass the NAT. To do so, please type the following _from your physical machine's terminal_ :  
 `google-chrome --incognito --host-resolver-rules="MAP csimonne.42.fr 127.0.0.1" "https://csimonne.42.fr:4443/wp-admin/"`   
 
-If it does not work, try clearing your browser's navigation history and cookies.  
-Note: You can replace 'google-chrome' with another Chromium-based browser prompt, but this specific DNS injection flag does not work with Firefox.
- 
-However, if you have configured a graphical interface and a browser directly inside your VM, simply navigate to the standard URL without the forwarded port: `https://csimonne.42.fr/wp-admin/`
+	If it does not work, try clearing your browser's navigation history and cookies.  
 
-disclaimer : In both cases, a security warning will appear due to the self-signed SSL/TLS certificate, which is expected.
+	Note: You can replace 'google-chrome' with another Chromium-based browser prompt, but this specific DNS injection flag does not work with Firefox.
+ 
+	However, if you have configured a graphical interface and a browser directly inside your VM, simply navigate to the standard URL without the forwarded port: `https://csimonne.42.fr/wp-admin/`
+
+	disclaimer : In both cases, a security warning will appear due to the self-signed SSL/TLS certificate, which is expected.
 
 3. Use `make down` to stop and remove containers, or `make fclean` to completely erase persistent volumes and data from the host.
 
