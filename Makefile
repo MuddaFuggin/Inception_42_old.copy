@@ -115,12 +115,10 @@ check:
 	esac
 
 
-
 #### -------- CLEANING --------  ####
 
-#clean:
- #	@read -p : "Are you sure you want to erase all volumes and data ? [y/N]" ans && [ $${ans:-N} = y ]
-#	docker compose -f srcs/docker-compose.yml down -v
+clean:
+	docker compose -f srcs/docker-compose.yml down -v
 
 fclean: clean
 	docker system prune -af
