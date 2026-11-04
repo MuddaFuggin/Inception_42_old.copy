@@ -2,7 +2,7 @@
 
 ## Description
 
-This project consists of setting up a small-scale web infrastructure using Docker and Docker Compose. The goal is to deploy a secure and isolated stack consisting of NGINX, WordPress, and MariaDB inside a Debian virtual machine.
+This project consists of setting up a small-scale web infrastructure using _Docker_ and _Docker Compose_. The goal is to deploy a secure and isolated stack consisting of NGINX, WordPress, and MariaDB inside a Debian virtual machine.
 
 Each service runs in its own dedicated container, built from custom Dockerfiles located in the `srcs/requirements` directory. The containers communicate through a private Docker network.
 
@@ -15,13 +15,15 @@ To compile, install, and execute this project:
 
 You could follow the instructions below to set up and run the infrastructure on your own hypervisor, provided that _docker_ and _docker compose_ are installed. However, the original developpement environnement consists of a Virtual Machine with Debian Bookworm installed (without a graphical interface).
 
-To reproduce this environment, you can either import the provided .ova file or set up your own Linux Virtual Machine with the following configuration:
+To reproduce this environment, you can set up your own Linux Virtual Machine with the following configuration : (note that in the context of a 42 school evaluation, the ready-made .ova file will be provided)
 
 - Install Docker and Docker Compose.
 - Configure your VM's port forwarding rules:
         HTTPS: TCP, host port 4443 → guest port 443.
-		You can also access your VM through SSH for convenience (optional)
+	- For convenience, you can also access your VM through SSH :  
         SSH: TCP, host port 2222 → guest port 22.
+
+- Launch Debian on your VM.
 
 ##### Configuration :
 

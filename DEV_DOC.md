@@ -1,10 +1,102 @@
-NOTES :
+# NOTES :
 
-Non, vous n'avez pas besoin d'écrire :443. Le préfixe https:// indique déjà automatiquement à n'importe quel navigateur d'utiliser le port 443 par défaut. Écrire [https://csimonne.42.fr/wp-admin/](https://csimonne.42.fr/wp-admin/) suffit donc amplement et correspond à l'URL standard exacte attendue.
+* Non, vous n'avez pas besoin d'écrire :443. Le préfixe https:// indique déjà automatiquement à n'importe quel navigateur d'utiliser le port 443 par défaut. Écrire [https://csimonne.42.fr/wp-admin/](https://csimonne.42.fr/wp-admin/) suffit donc amplement et correspond à l'URL standard exacte attendue.
 
 
 
-Guide de Soutenance - Projet Inception 42
+# A propos des ports de connection 
+
+## la convention Internet Assigned Numbers Authority :
+
+Respecter les conventions facilite :
+
+    La configuration réseau.
+
+    Le dépannage.
+
+    La communication entre machines.
+
+    La maintenance des infrastructures.
+
+#### Quelques conventions d'assignation pour les 'Services reseau fondamentaux'
+
+Services réseau fondamentaux
+
+| Port 	| Protocole | Service 
+| ---  	| --- 		| --- 
+| 20 	| TCP 		| FTP Data 
+| 21 	| TCP 		| FTP Control 
+| 22 	| TCP 		| SSH 
+| 23 	| TCP 		| Telnet 
+| 25 	| TCP 		| SMTP (envoi d'emails)
+| 53 	| TCP/UDP	| DNS 
+| 67 	| 68  		| UDP | DHCP 
+| 80 	| TCP  		| HTTP 
+| 110 	| TCP  		| POP3 
+| 123 	| UDP  		| NTP (synchronisation horaire) 
+| 143 	| TCP  		| IMAP 
+| 443 	| TCP  		| HTTPS 
+| 465 	| TCP  		| SMTP sécurisé 
+| 587 	| TCP  		| SMTP Submission 
+| 993 	| TCP  		| IMAPS 
+| 995 	| TCP  		| POP3S
+
+#### Quelques commandes utiles :
+
+* Tous les ports TCP en écoute
+ss -tln
+
+* Tous les ports UDP en écoute
+ss -uln
+
+* Toutes les connexions TCP
+ss -tn
+
+* Tous les sockets (TCP et UDP)
+ss -tuln
+
+
+* Et pour connaître les services associés aux numéros de ports :
+cat /etc/services
+
+
+#### Une notion importante : port ≠ protocole
+
+C'est probablement le point le plus intéressant à retenir.
+
+Un port est simplement un numéro permettant d'identifier un point de communication sur une machine.
+
+Par exemple :
+
+IP : 192.168.1.10
+Port : 22
+Protocole : TCP
+Service : SSH
+
+Et une même machine peut héberger simultanément :
+
+
+192.168.1.10:22    → SSH
+192.168.1.10:80    → HTTP
+192.168.1.10:443   → HTTPS
+192.168.1.10:3306  → MySQL
+
+Tous ces services peuvent fonctionner simultanément.
+
+#### Pour aller plus loin
+
+Je te conseille de retenir particulièrement ces trois notions :
+
+1. IP : identifie une interface réseau sur une machine.
+2. Port : identifie un point de communication sur cette machine.
+3. Socket : représente une extrémité de communication, généralement associée à une IP, un port et un protocole.
+
+
+
+
+
+
+# Guide de Soutenance - Projet Inception 42
 
 Ce document synthétise l'ensemble de l'architecture, des choix techniques et des mécanismes de sécurité validés pour le projet Inception. Il est conçu pour vous servir de support de référence clair et direct lors de votre soutenance.
 
